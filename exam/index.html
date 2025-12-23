@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Reviews</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+    crossorigin="anonymous"
+  />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Gemstones&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <div id="gameList ">
+      <div class="bg-img w-100">
+      <nav class="navbar navbar-expand-lg w-75 text-center  mx-auto " id="Home"> 
+        <div class="container  m-auto ">
+
+          <h5 class="navbar-brand text-center text-white">GAME REVIEWS</h5>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      
+          </div>
+        </div>
+
+      </nav>
+    </div> 
+   
+      <ul class="navbar-nav  ms-auto mb-2 mb-lg-0 d-flex flex-row justify-content-center gap-4 py-3" id="categories">
+        <li class="nav-item">
+          <a
+            category="mmorpg"
+            class="nav-cat nav-link active"
+            aria-current="page"
+            href="#"
+            >MMORBG</a
+          >
+        </li>
+        <li class="nav-item">
+          <a category="shooter" class="nav-cat nav-link" href="#"
+            >SHOOTER</a
+          >
+        </li>
+        <li class="nav-item">
+          <a category="sailing" class="nav-cat nav-link" href="#"
+            >SAILING</a
+          >
+        </li>
+        <li class="nav-item">
+          <a category="permadeath" class="nav-cat nav-link" href="#"
+            >PERMADEATH</a
+          >
+        </li>
+        <li class="nav-item">
+          <a category="superhero" class="nav-cat nav-link" href="#"
+            >SUPERHERO</a
+          >
+        </li>
+        <li class="nav-item">
+          <a category="pixel" class="nav-cat nav-link" href="#">PIXEL</a>
+        </li>
+      </ul>
+      <div
+        id="loadingIndicator"
+        class="spinner-border mx-auto mt-5 text-danger"
+        role="status"
+        style="display: none; width: 3rem; height: 3rem"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+
+      <section id="data">
+        <div class="container">
+          <div id="gamesTitle"></div>
+          <div class="row mt-5 gy-4"></div>
+        </div>
+      </section>
+    </div>
+
+    <section id="details" class="d-none vh-100">
+      <div class="container">
+        <div class="header-text d-flex justify-content-between pt-4 pb-5">
+          <h1 class="text-white">Details Game</h1>
+          <button type="button" class="btn-close btn-close-white" aria-label="Close"></button>
+        </div>
+        <div class="row details-content"></div>
+      </div>
+    </section>
+    <footer class="game-footer text-white">
+      <div class="container">
+        <div class="row text-center text-md-start">
+    
+          <!-- Logo / About -->
+          <div class="col-md-4 mb-4">
+            <h4 class="footer-title">GAME REVIEWS</h4>
+            <p class="footer-desc">
+              Discover honest reviews, ratings, and details for the best free-to-play games.
+              Stay updated and choose your next adventure.
+            </p>
+          </div>
+    
+          <!-- Quick Links -->
+          <div class="col-md-4 mb-4">
+            <h5 class="footer-subtitle">Quick Links</h5>
+            <ul class="footer-links">
+              <li><a href="#Home">Home</a></li>
+              <li><a href="#categories">categories</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+    
+          <!-- Contact -->
+          <div class="col-md-4 mb-4" id ="contact">
+            <h5 class="footer-subtitle">Contact</h5>
+            <p class="font-e">Email: Halasabermohamed11@gmail.com</p>
+            <p class="font-e">Follow us on social media</p>
+           
+    
+            <div class="social-icons">
+              <a href="#">🌐</a>
+              <a href="#">🎮</a>
+              <a href="#">🐦</a>
+            </div>
+          </div>
+    
+        </div>
+    
+        <hr class="footer-line">
+    
+        <p class="text-center footer-copy">
+          © 2025 Game Reviews. All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+    
+    <script src="js/main.js" type="module"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
