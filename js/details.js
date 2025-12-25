@@ -17,48 +17,55 @@ export default async function getDetails(id) {
 
 function displayDetails(element) {
   const gameList = document.querySelector("#gameList");
-  let details = document.querySelector(".details-content");
-  let showDetails = document.querySelector("#details");
-  const closeBtn = document.querySelector(".btn-close");
+  let details = document.querySelector("#details");
+  let detailsContent = document.querySelector(".details-content");
+  const closeBtn = document.querySelector("#details .btn-close");
+
   let blackBox = `
-  <div class="game-card row align-items-center h-100 z-3">
-  <div class="col-md-4 game-img">
-    <img src="${element.thumbnail}" alt="${element.title}">
-  </div>
+    <div class="game-card row align-items-center h-100">
+      <div class="col-md-4 game-img">
+        <img src="${element.thumbnail}" class="img-fluid rounded" alt="${element.title}">
+      </div>
+      
+      <div class="col-md-8 text-white game-info">
+        <h2 class="game-title mb-3">${element.title}</h2>
+        
+        <div class="mb-3">
+          <p class="mb-1">Category:
+            <span class="badge bg-info text-black ms-2">${element.genre}</span>
+          </p>
+          <p class="mb-1">Platform:
+            <span class="badge bg-info text-black ms-2">${element.platform}</span>
+          </p>
+          <p class="mb-3">Status:
+            <span class="badge bg-info text-black ms-2">${element.status}</span>
+          </p>
+        </div>
+        
+        <p class="game-desc mb-4">${element.description}</p>
+        
+        <a href="${element.freetogame_profile_url}" target="_blank"
+           class="btn btn-outline-warning btn-lg game-btn">
+           🎮 Show Game
+        </a>
+      </div>
+    </div>
+  `;
 
-  <div class="col-md-8 text-white game-info">
-    <h3 class="game-title">${element.title}</h3>
+  detailsContent.innerHTML = blackBox;
+  details.classList.remove("d-none");
+  document.body.style.overflow = "hidden"; // منع التمرير خلف الـ overlay
 
-    <p>Category:
-      <span class="badge bg-info text-black">${element.genre}</span>
-    </p>
-
-    <p>Platform:
-      <span class="badge bg-info text-black">${element.platform}</span>
-    </p>
-
-    <p>Status:
-      <span class="badge bg-info text-black">${element.status}</span>
-    </p>
-
-    <p class="game-desc">${element.description}</p>
-
-    <a href="${element.freetogame_profile_url}" target="_blank"
-       class="btn btn-outline-warning game-btn">
-       🎮 Show Game
-    </a>
-  </div>
-</div>
-
- `;
-let footer = document.querySelector("footer");
-footer.classList.add("d-none");
-  details.innerHTML = blackBox;
-  showDetails.classList.remove("d-none");
-  gameList.classList.add("d-none");
   closeBtn.addEventListener("click", () => {
-    showDetails.classList.add("d-none");
-    gameList.classList.remove("d-none");
-    footer.classList.remove("d-none");
+    details.classList.add("d-none");
+    document.body.style.overflow = "auto"; // إعادة التمرير
+  });
+
+  // إغلاق الـ overlay عند النقر خارج المحتوى
+  details.addEventListener("click", (e) => {
+    if (e.target === details) {
+      details.classList.add("d-none");
+      document.body.style.overflow = "auto";
+    }
   });
 }
