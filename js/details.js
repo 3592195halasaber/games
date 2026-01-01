@@ -16,56 +16,28 @@ export default async function getDetails(id) {
 }
 
 function displayDetails(element) {
-  const gameList = document.querySelector("#gameList");
-  let details = document.querySelector("#details");
-  let detailsContent = document.querySelector(".details-content");
+  const details = document.querySelector("#details");
+  const detailsContent = document.querySelector(".details-content");
   const closeBtn = document.querySelector("#details .btn-close");
 
-  let blackBox = `
-    <div class="game-card row align-items-center h-100">
-      <div class="col-md-4 game-img">
-        <img src="${element.thumbnail}" class="img-fluid rounded" alt="${element.title}">
+  detailsContent.innerHTML = `
+    <div class="game-card row align-items-center">
+      <div class="col-md-4">
+        <img src="${element.thumbnail}" class="img-fluid rounded">
       </div>
-      
-      <div class="col-md-8 text-white game-info">
-        <h2 class="game-title mb-3">${element.title}</h2>
-        
-        <div class="mb-3">
-          <p class="mb-1">Category:
-            <span class="badge bg-info text-black ms-2">${element.genre}</span>
-          </p>
-          <p class="mb-1">Platform:
-            <span class="badge bg-info text-black ms-2">${element.platform}</span>
-          </p>
-          <p class="mb-3">Status:
-            <span class="badge bg-info text-black ms-2">${element.status}</span>
-          </p>
-        </div>
-        
-        <p class="game-desc mb-4">${element.description}</p>
-        
-        <a href="${element.freetogame_profile_url}" target="_blank"
-           class="btn btn-outline-warning btn-lg game-btn">
-           🎮 Show Game
-        </a>
+      <div class="col-md-8 text-white">
+        <h2>${element.title}</h2>
+        <p>${element.description}</p>
       </div>
     </div>
   `;
 
-  detailsContent.innerHTML = blackBox;
   details.classList.remove("d-none");
-  document.body.style.overflow = "hidden"; // منع التمرير خلف الـ overlay
+  document.body.style.overflow = "hidden";
 
-  closeBtn.addEventListener("click", () => {
+  closeBtn.onclick = () => {
     details.classList.add("d-none");
-    document.body.style.overflow = "auto"; // إعادة التمرير
-  });
-
-  // إغلاق الـ overlay عند النقر خارج المحتوى
-  details.addEventListener("click", (e) => {
-    if (e.target === details) {
-      details.classList.add("d-none");
-      document.body.style.overflow = "auto";
-    }
-  });
+    document.body.style.overflow = "auto";
+  };
 }
+

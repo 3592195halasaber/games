@@ -13,7 +13,11 @@ body {
 ::-webkit-scrollbar {
   width: 15px;
 }
-
+.font-title {
+  font-family: "Mountains of Christmas", serif;
+  font-weight: 700;
+  font-style: normal;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.616);}
 /* Track */
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey;
@@ -262,6 +266,34 @@ transform: scale(1.1);
   line-height: 24px;
   text-decoration: none;
   color: white;
+}
+#details {
+  position: fixed;
+  inset: 0;                /* top:0 right:0 bottom:0 left:0 */
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+
+  overflow-y: auto;        /* ✅ scroll جوا details */
+}
+
+.details-content {
+  max-height: calc(100vh - 120px); /* يسيب مساحة للـ header */
+  overflow-y: auto;
+}
+
+
+#details .overlay {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+#details .game-card {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 /* ===== GAME CARD ===== */
 .game-card {
